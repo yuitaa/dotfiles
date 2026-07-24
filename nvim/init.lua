@@ -114,12 +114,42 @@ require("lazy").setup({
     end,
   },
   {
-    "stevearc/oil.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
     config = function()
-      require("oil").setup({
-        default_file_explorer = true,
+      require("neo-tree").setup({
+        close_if_last_window = true,
       })
-      vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
+      vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup({
+        options = {
+          mode = "buffers",
+          separator_style = "slant",
+        },
+      })
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "catppuccin",
+          section_separators = "",
+          component_separators = "",
+        },
+      })
     end,
   },
 })
