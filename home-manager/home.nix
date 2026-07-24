@@ -6,6 +6,8 @@
 
   home.packages = with pkgs; [
     neovim
+    bat
+    ffmpeg
   ];
 
   programs.git = {
@@ -19,6 +21,16 @@
         defaultBranch = "main";
       };
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    mouse = true;
+    historyLimit = 5000;
+  };
+
+  programs.gh = {
+    enable = true;
   };
 
   programs.zsh = {
