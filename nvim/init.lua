@@ -19,6 +19,8 @@ vim.opt.expandtab = true
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
 
+vim.g.mapleader = " "
+
 require("lazy").setup({
   {
     "wakatime/vim-wakatime",
