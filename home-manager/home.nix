@@ -83,7 +83,7 @@
 
     shellAliases = {
       ll = "ls -alF";
-      update = "sudo nixos-rebuild switch --flake ~/dotfiles#";
+      update = "sudo nixos-rebuild switch --flake ~/dotfiles#$(grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null && echo nixos || echo default)";
       nv = "nvim";
     };
   };

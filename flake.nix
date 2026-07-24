@@ -14,22 +14,29 @@
     vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, vscode-server, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, vscode-server, ... }@inputs: let
+    sharedModules = [
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.nixos = import ./home-manager/home.nix;
+      }
+    ];
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        nixos-wsl.nixosModules.wsl
+      modules = sharedModules ++ [
         ./nixos/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.nixos = import ./home-manager/home.nix;
-        }
+        nixos-wsl.nixosModules.wsl
+        ./nixos/wsl.nix
         vscode-server.nixosModules.default
-        ({ config, pkgs, ... }: {
-          services.vscode-server.enable = true;
-        })
+      ];
+    };
+    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = sharedModules ++ [
+        ./nixos/configuration-default.nix
       ];
     };
     devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
