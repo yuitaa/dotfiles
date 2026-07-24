@@ -11,9 +11,13 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, vscode-server, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -25,6 +29,10 @@
           home-manager.useUserPackages = true;
           home-manager.users.nixos = import ./home-manager/home.nix;
         }
+        vscode-server.nixosModules.default
+        ({ config, pkgs, ... }: {
+          services.vscode-server.enable = true;
+        })
       ];
     };
   };

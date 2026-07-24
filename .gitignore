@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Home directory temp / cache files
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.zsh_history
+.z*
+.zcompdump*
+.zprofile
+.zshenv
+.zshrc
+.nix-profile
+.nix-defexpr
+.npm/
+.cache/
+.local/
+.config/
+.ssh/

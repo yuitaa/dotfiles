@@ -32,6 +32,7 @@ in
     home-manager
     opencode
     code-wsl
+    wget
   ];
 
   programs.zsh.enable = true;
