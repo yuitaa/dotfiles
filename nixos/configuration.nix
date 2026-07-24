@@ -24,6 +24,11 @@
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
 
+  i18n.defaultLocale = "ja_JP.UTF-8";
+  i18n.supportedLocales = [ "ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+
+  time.timeZone = "Asia/Tokyo";
+
   wsl.enable = true;
   wsl.defaultUser = "nixos";
   wsl.interop.register = true;
