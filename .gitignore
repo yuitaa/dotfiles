@@ -1,24 +1,16 @@
-# OS / editor
-.DS_Store
-*.swp
-*.swo
-*~
+# Whitelist approach - only explicitly allowed files are tracked
+*
 
-# Home directory temp / cache files
-.bash_history
-.bash_logout
-.bash_profile
-.bashrc
-.zsh_history
-.z*
-.zcompdump*
-.zprofile
-.zshenv
-.zshrc
-.nix-profile
-.nix-defexpr
-.npm/
-.cache/
-.local/
-.config/
-.ssh/
+# Allowlist
+!.gitignore
+!AGENTS.md
+!flake.nix
+!flake.lock
+
+# Config directories
+!home-manager/
+!home-manager/**
+!nixos/
+!nixos/**
+!nvim/
+!nvim/**

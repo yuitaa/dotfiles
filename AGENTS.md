@@ -10,3 +10,9 @@
    git add -A
    git commit -m "<description>"
    ```
+
+# Adding new tracked files
+
+When adding a new file that should be tracked by git:
+1. Add it to `.gitignore` using a `!` pattern (e.g. `!new-dir/` and `!new-dir/**`).
+2. Stage and commit both `.gitignore` and the new file.
