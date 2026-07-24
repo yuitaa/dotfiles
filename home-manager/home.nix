@@ -64,10 +64,6 @@
   };
 
   home.file.".config/direnv/direnv.toml".source = ./direnv/direnv.toml;
-  home.file.".config/direnv/lib" = {
-    source = ./direnv/lib;
-    recursive = true;
-  };
 
   programs.zsh = {
     enable = true;
@@ -86,6 +82,7 @@
       ll = "ls -alF";
       update = "sudo nixos-rebuild switch --flake ~/dotfiles#";
       nv = "nvim";
+      init-project = "~/dotfiles/scripts/init-project";
     };
   };
 

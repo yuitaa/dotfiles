@@ -14,4 +14,6 @@
 !nixos/**
 !nvim/
 !nvim/**
+!scripts/
+!scripts/**
 !.envrc

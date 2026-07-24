@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ $# -ne 1 ]; then
+  echo "Usage: init-project <lang>"
+  echo "Available: go rust node python bun nix"
+  exit 1
+fi
+
+lang="$1"
+template="${HOME}/dotfiles/home-manager/direnv/templates/${lang}.nix"
+
+if [ ! -f "$template" ]; then
+  echo "Error: unknown language '${lang}'"
+  echo "Available: go rust node python bun nix"
+  exit 1
+fi
+
+cp "$template" flake.nix
+echo "use flake" > .envrc
+direnv allow
+echo "Done: flake.nix + .envrc created for ${lang} project"
