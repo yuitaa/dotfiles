@@ -1,9 +1,14 @@
 # Workflow
 
-1. Edit the relevant Nix files (`flake.nix`, `nixos/configuration.nix`, `home-manager/home.nix`).
-2. Build and apply:
+1. Edit the relevant Nix files (`flake.nix`, `nixos/configuration.nix`, `nixos/wsl.nix`, `nixos/configuration-default.nix`, `home-manager/home.nix`).
+2. Build and apply (auto-detects WSL vs bare-metal):
    ```
    sudo nixos-rebuild switch --flake ~/dotfiles#
+   ```
+   Or specify explicitly:
+   ```
+   sudo nixos-rebuild switch --flake ~/dotfiles#nixos   # WSL
+   sudo nixos-rebuild switch --flake ~/dotfiles#default  # bare-metal
    ```
 3. If the build succeeds, stage and commit:
    ```
