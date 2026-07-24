@@ -20,11 +20,13 @@
     wget
   ];
 
+  programs.nix-ld.enable = true;
   programs.zsh.enable = true;
   users.users.nixos.shell = pkgs.zsh;
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+  wsl.interop.register = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
