@@ -120,11 +120,15 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    keys = {
+      { mode = "n", "<leader>t", "<cmd>Neotree toggle<CR>", {} },
+      { mode = "n", "<C-m>", "<cmd>Neotree reveal<CR>", {} },
+      { mode = "n", "<leader>b", "<cmd>Neotree float buffers<CR>", {} },
+    },
     config = function()
       require("neo-tree").setup({
         close_if_last_window = true,
       })
-      vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
     end,
   },
   {
