@@ -15,6 +15,9 @@
     lazygit
     jq
     yq
+    fastfetch
+    opencode
+    nil
     nerd-fonts.jetbrains-mono
   ];
 
@@ -65,7 +68,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initContent = "fastfetch --structure-disabled colors\n";
+    initExtra = "fastfetch --structure-disabled colors";
 
     shellAliases = {
       ll = "ls -alF";

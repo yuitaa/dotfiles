@@ -9,15 +9,14 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.settings.auto-optimise-store = true;
 
   environment.systemPackages = with pkgs; [
     curl
     git
     zsh
-    fastfetch
-    home-manager
-    opencode
-    wget
   ];
 
   programs.nix-ld.enable = true;

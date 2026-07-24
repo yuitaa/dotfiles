@@ -33,7 +33,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+        ensure_installed = { "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "nix" },
         auto_install = true,
         highlight = { enable = true },
       })
@@ -44,6 +44,7 @@ require("lazy").setup({
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
+      lspconfig.nil_ls.setup({})
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
