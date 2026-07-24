@@ -33,7 +33,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = "fastfetch\n";
+    initContent = "fastfetch\n";
 
     shellAliases = {
       ll = "ls -alF";
