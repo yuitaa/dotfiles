@@ -22,7 +22,7 @@
     enable = true;
     settings = {
       user = {
-        name = "yuita";
+        name = "yuitaa";
         email = "95457974+yuitaa@users.noreply.github.com";
       };
       init = {
