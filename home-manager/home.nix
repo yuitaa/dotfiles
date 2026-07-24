@@ -33,6 +33,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    initExtra = "fastfetch\n";
+
     shellAliases = {
       ll = "ls -alF";
       update = "sudo nixos-rebuild switch --flake ~/dotfiles#";

@@ -16,6 +16,7 @@
     zsh
     fastfetch
     home-manager
+    opencode
   ];
 
   programs.zsh.enable = true;
