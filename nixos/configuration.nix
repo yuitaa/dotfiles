@@ -7,20 +7,6 @@
 
 { config, lib, pkgs, ... }:
 
-let
-  code-wsl = pkgs.writeShellScriptBin "code" ''
-    WIN_USER=$(/mnt/c/Windows/System32/cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r\n')
-    CODE="/mnt/c/Users/$WIN_USER/AppData/Local/Programs/Microsoft VS Code/bin/code"
-    if [ -x "$CODE" ]; then
-      exec "$CODE" "$@"
-    else
-      echo "Error: VS Code not found on Windows." >&2
-      echo "Install VS Code from https://code.visualstudio.com/" >&2
-      exit 1
-    fi
-  '';
-in
-
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -31,7 +17,6 @@ in
     fastfetch
     home-manager
     opencode
-    code-wsl
     wget
   ];
 
