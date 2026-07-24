@@ -31,6 +31,7 @@ in
     yq
     fastfetch
     opencode
+    wakatime-cli
     nerd-fonts.jetbrains-mono
   ];
 
