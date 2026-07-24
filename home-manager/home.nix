@@ -65,7 +65,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initContent = "fastfetch\n";
+    initContent = "fastfetch --structure-disabled colors\n";
 
     shellAliases = {
       ll = "ls -alF";
