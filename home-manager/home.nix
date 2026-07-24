@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home.username = "yuita";
+  home.homeDirectory = "/home/yuita";
 
   home.packages = with pkgs; [
     neovim
@@ -74,7 +74,7 @@
     };
   };
 
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nixos/dotfiles/nvim";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
 
   home.stateVersion = "26.05";
 }

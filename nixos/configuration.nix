@@ -20,10 +20,15 @@
   ];
 
   programs.zsh.enable = true;
-  users.users.nixos.shell = pkgs.zsh;
+
+  users.users.yuita = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ];
+  };
 
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "yuita";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
