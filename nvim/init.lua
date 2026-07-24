@@ -114,13 +114,12 @@ require("lazy").setup({
     end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    "stevearc/oil.nvim",
     config = function()
-      require("nvim-tree").setup({
-        filters = { dotfiles = false },
+      require("oil").setup({
+        default_file_explorer = true,
       })
-      vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+      vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
     end,
   },
 })
