@@ -76,13 +76,15 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = "fastfetch --structure-disabled colors";
+    initContent = ''
+      export PATH="$HOME/dotfiles/scripts:$PATH"
+      fastfetch --structure-disabled colors
+    '';
 
     shellAliases = {
       ll = "ls -alF";
       update = "sudo nixos-rebuild switch --flake ~/dotfiles#";
       nv = "nvim";
-      init-project = "~/dotfiles/scripts/init-project";
     };
   };
 
