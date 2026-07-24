@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/nixos";
 
   home.packages = with pkgs; [
-    neovim
     bat
     ffmpeg
     ripgrep
@@ -17,9 +16,16 @@
     yq
     fastfetch
     opencode
-    nil
     nerd-fonts.jetbrains-mono
   ];
+
+  programs.neovim = {
+    enable = true;
+    extraPackages = with pkgs; [ nil ];
+    initLua = ''
+      dofile(vim.fn.expand("~/dotfiles/nvim/init.lua"))
+    '';
+  };
 
   programs.git = {
     enable = true;
@@ -76,8 +82,6 @@
       nv = "nvim";
     };
   };
-
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nixos/dotfiles/nvim";
 
   home.stateVersion = "26.05";
 }
