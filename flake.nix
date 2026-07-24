@@ -23,7 +23,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.yuita = import ./home-manager/home.nix;
+          home-manager.users.nixos = import ./home-manager/home.nix;
         }
       ];
     };
