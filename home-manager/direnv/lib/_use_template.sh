@@ -3,6 +3,8 @@ _use_template() {
   if [ ! -f flake.nix ]; then
     cp "${HOME}/dotfiles/home-manager/direnv/templates/${lang}.nix" flake.nix
     log_status "Generated flake.nix for ${lang} project"
+    echo "use flake" > .envrc
+    log_status "Rewrote .envrc to portable 'use flake'"
   fi
   use flake
 }
