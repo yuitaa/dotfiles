@@ -63,6 +63,12 @@
     nix-direnv.enable = true;
   };
 
+  home.file.".config/direnv/direnv.toml".source = ./direnv/direnv.toml;
+  home.file.".config/direnv/lib" = {
+    source = ./direnv/lib;
+    recursive = true;
+  };
+
   programs.zsh = {
     enable = true;
 
