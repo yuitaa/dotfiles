@@ -8,6 +8,14 @@
     neovim
     bat
     ffmpeg
+    ripgrep
+    fd
+    eza
+    btop
+    lazygit
+    jq
+    yq
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.git = {
@@ -33,13 +41,25 @@
     enable = true;
   };
 
+  programs.starship = {
+    enable = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.zsh = {
     enable = true;
 
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "sudo" "extract" "command-not-found" "z" "web-search" ];
-      theme = "robbyrussell";
     };
 
     autosuggestion.enable = true;
