@@ -1,0 +1,46 @@
+{ config, pkgs, ... }:
+
+{
+  home.username = "nixos";
+  home.homeDirectory = "/home/nixos";
+
+  home.packages = with pkgs; [
+    neovim
+  ];
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "yuita";
+        email = "95457974+yuitaa@users.noreply.github.com";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
+
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -alF";
+      update = "sudo nixos-rebuild switch --flake ~/dotfiles#";
+      nv = "nvim";
+    };
+  };
+
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/nixos/dotfiles/nvim";
+
+  home.stateVersion = "26.05";
+}
