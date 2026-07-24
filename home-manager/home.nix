@@ -37,7 +37,7 @@ in
 
   programs.neovim = {
     enable = true;
-    extraPackages = with pkgs; [ nil ];
+    extraPackages = with pkgs; [ nil lua-language-server tree-sitter ];
     initLua = ''
       dofile(vim.fn.expand("~/dotfiles/nvim/init.lua"))
     '';
