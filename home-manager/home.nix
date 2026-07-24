@@ -26,7 +26,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "sudo" "extract" "command-not-found" "z" "web-search" ];
       theme = "robbyrussell";
     };
 
