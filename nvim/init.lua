@@ -21,6 +21,9 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
   {
+    "wakatime/vim-wakatime",
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,

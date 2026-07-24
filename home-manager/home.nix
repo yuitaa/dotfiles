@@ -1,4 +1,19 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let
+  opencode-wakatime-plugin = pkgs.runCommand "opencode-wakatime-plugin" {
+    src = pkgs.fetchurl {
+      url = "https://registry.npmjs.org/opencode-wakatime/-/opencode-wakatime-1.3.9.tgz";
+      sha256 = "0hylc8vvwsxb66pl95f03i61id1qckqw8naag3p9v3gxn0nm1z38";
+    };
+    nativeBuildInputs = [ pkgs.gnutar ];
+  } ''
+    mkdir -p "$out"
+    tar xzf "$src" -C "$out" package/dist/bundle.js
+    mv "$out/package/dist/bundle.js" "$out/wakatime.js"
+    rm -rf "$out/package"
+  '';
+in
 
 {
   home.username = "nixos";
@@ -64,6 +79,9 @@
   };
 
   home.file.".config/direnv/direnv.toml".source = ./direnv/direnv.toml;
+
+  home.file.".config/opencode/plugin/wakatime.js".source =
+    "${opencode-wakatime-plugin}/wakatime.js";
 
   programs.zsh = {
     enable = true;
